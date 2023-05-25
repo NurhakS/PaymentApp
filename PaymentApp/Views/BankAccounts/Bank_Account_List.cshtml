@@ -1,0 +1,107 @@
+﻿@model IEnumerable<PaymentApp.Models.BankAccount>
+@{
+    ViewData["Title"] = "Bank_Account_List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+<div id="content" class="py-4">
+    <div class="container">
+        <div class="row">
+            <!-- Left Panel
+            ============================================= -->
+            <aside class="col-lg-3">
+
+                <!-- Profile Details
+                =============================== -->
+                <div class="bg-white shadow-sm rounded text-center p-3 mb-4">
+                    <div class="profile-thumb mt-3 mb-4">
+                        <img class="rounded-circle" src="images/profile-thumb.jpg" alt="">
+                        <div class="profile-thumb-edit bg-primary text-white" data-bs-toggle="tooltip" title="Change Profile Picture">
+                            <i class="fas fa-camera position-absolute"></i>
+                            <input type="file" class="custom-file-input" id="customFile">
+                        </div>
+                    </div>
+                    <p class="text-3 fw-500 mb-2">Hello, @ViewData["Message"]</p>
+                    <p class="mb-2"><a href="settings-profile.html" class="text-5 text-light" data-bs-toggle="tooltip" title="Edit Profile"><i class="fas fa-edit"></i></a></p>
+                </div>
+                <!-- Profile Details End -->
+                <!-- Available Balance
+                =============================== -->
+                <div class="bg-white shadow-sm rounded text-center p-3 mb-4">
+                    <div class="text-17 text-light my-3"><i class="fas fa-wallet"></i></div>
+                    <h3 class="text-9 fw-400">@ViewData["Number"]</h3>
+                    <p class="mb-2 text-muted opacity-8"></p>
+                    <hr class="mx-n3">
+                    <div class="d-flex"><a href="withdraw-money.html" class="btn-link me-auto">Withdraw</a> <a href="deposit-money.html" class="btn-link ms-auto">Deposit</a></div>
+                </div>
+                <!-- Available Balance End -->
+                <!-- Need Help?
+                =============================== -->
+                <div class="bg-white shadow-sm rounded text-center p-3 mb-4">
+                    <div class="text-17 text-light my-3"><i class="fas fa-comments"></i></div>
+                    <h3 class="text-5 fw-400 my-4">Need Help?</h3>
+                    <p class="text-muted opacity-8 mb-4">
+                        Have questions or concerns regrading your account?<br>
+                        Our experts are here to help!.
+                    </p>
+                    <div class="d-grid"><a href="#" class="btn btn-primary">Chate with Us</a></div>
+                </div>
+                <!-- Need Help? End -->
+
+            </aside>
+            <!-- Left Panel End -->
+            <!-- Middle Panel
+            ============================================= -->
+            <div class="col-lg-9">
+
+                <!-- Credit or Debit Cards
+                ============================================= -->
+                <!-- Credit or Debit Cards End -->
+                <!-- Bank Accounts
+                ============================================= -->
+                <div class="bg-white shadow-sm rounded p-4 mb-4">
+                    <h3 class="text-5 fw-400 mb-4">Bank Accounts <span class="text-muted text-4">(for withdrawal)</span></h3>
+                    <hr class="mb-4 mx-n4">
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                            @foreach (var item in Model)
+                            {
+                                <div class="account-card account-card-primary text-white rounded">
+                                    <div class="row g-0">
+                                        <div class="col-3 d-flex justify-content-center p-3">
+                                            <div class="my-auto text-center">
+                                                <span class="text-13"><i class="fas fa-university"></i></span>
+                                                <p class="badge bg-warning text-dark text-0 fw-500 rounded-pill px-2 mb-0"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-9 border-start">
+                                            <div class="py-4 my-2 ps-4">
+                                                <p class="text-4 fw-500 mb-1">@item.BankName</p>
+                                                <p class="text-4 opacity-9 mb-1">@item.IbanCustomer</p>
+                                                <p class="m-0">@item.AccountName <span class="text-3"><i class="fas fa-check-circle"></i></span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            </div>
+                        <div class="col-12 col-md-6">
+                            <a href="@Url.Action("Bank_Account","BankAccounts")" >
+                                <p class="w-100 text-center lh-base m-0"> <span class="text-3"><i class="fas fa-plus-circle"></i></span> <span class="d-block text-body text-3">Add New Bank Account</span> </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Edit Bank Account Details Modal
+                ======================================== -->
+                <!-- Add New Bank Account Details Modal
+                ======================================== -->
+                <!-- Bank Accounts End -->
+
+            </div>
+
+            <!-- Middle Panel End -->
+        </div>
+    </div>
+</div>

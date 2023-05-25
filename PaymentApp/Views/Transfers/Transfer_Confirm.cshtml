@@ -1,0 +1,62 @@
+﻿@model PaymentApp.Models.Transfer
+
+@{
+    ViewData["Title"] = "Transfer_Send";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+<!-- Content
+============================================= -->
+<div id="content" class="py-4">
+    <div class="container">
+
+        <!-- Steps Progress bar -->
+        <div class="row mt-4 mb-5">
+            <div class="col-lg-11 mx-auto">
+                <div class="row widget-steps">
+                    <div class="col-4 step complete">
+                        <div class="step-name">Details</div>
+                        <div class="progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <a href="#" class="step-dot"></a>
+                    </div>
+                    <div class="col-4 step complete">
+                        <div class="step-name">Confirm</div>
+                        <div class="progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <a href="#" class="step-dot"></a>
+                    </div>
+                    <div class="col-4 step active">
+                        <div class="step-name">Success</div>
+                        <div class="progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                        <a href="#" class="step-dot"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="fw-400 text-center mt-3">Send Money</h2>
+        <p class="lead text-center mb-4">Send your money on anytime, anywhere in the world.</p>
+        <div class="row">
+            <div class="col-md-9 col-lg-7 col-xl-6 mx-auto">
+                <!-- Send Money Success
+            ============================================= -->
+                <div class="bg-white text-center shadow-sm rounded p-3 pt-sm-4 pb-sm-5 px-sm-5 mb-4">
+                    <div class="my-4">
+                        <p class="text-success text-20 lh-1"><i class="fas fa-check-circle"></i></p>
+                        <p class="text-success text-8 fw-500 lh-1">Success!</p>
+                        <p class="lead">Transactions Complete</p>
+                    </div>
+                    <p class="text-3 mb-4">You've Succesfully sent <span class="text-4 fw-500"></span> to <span class="fw-500">Account Number</span>, See transaction details under <a class="btn-link" href="#">Activity</a>.</p>
+                    <div class="d-grid"><button class="btn btn-primary">Send Money Again</button></div>
+                    <a class="text-3 d-inline-block btn-link mt-4" href="#"><i class="fas fa-print"></i> Print</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

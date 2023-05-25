@@ -1,0 +1,86 @@
+﻿@model PaymentApp.Models.Wallet
+
+@{
+    ViewData["Title"] = "Sign_Up";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+    <link href="images/favicon.png" rel="icon" />
+    <title>PAYNOW</title>
+    <meta name="description" content="This professional design html template is for build a Money Transfer and online payments website.">
+    <meta name="author" content="harnishdesign.net">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Web Fonts
+    ============================================= -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap">
+
+    <!-- Stylesheet
+    ============================================= -->
+    <link href="~/css/stylesheet.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/all.min.css" rel="stylesheet" />
+    <!-- Colors Css -->
+
+    <link id="color-switcher" type="text/css" rel="stylesheet" href="#" />
+</head>
+<body style="background-color:green; color:white;">
+
+    <!-- Preloader -->
+    <!-- Preloader End -->
+
+    <div id="main-wrapper" class="min-vh-100 d-flex flex-column" style="background-color:green;">
+        <!-- SignUp Form
+        ============================================= -->
+        <div class="container my-auto" style="background-color:green;">
+            <div class="row g-0">
+                <div class="col-11 col-sm-9 col-md-7 col-lg-5 col-xl-4 m-auto py-5">
+                    <div class="logo text-center"> <a href="index.html" title="Paynow"><img src="~/images/logo-light.png" alt="Paynow"></a> </div>
+                    <p class="lead text-center mb-4">@ViewData["Message"]</p>
+                    <form id="loginForm" method="post">
+                        <div class="vertical-input-group">
+                            <div class="form-group">
+                                <label asp-for="Currency" class="control-label"></label>
+                                <select asp-for="Currency" class="form-control" asp-items="ViewBag.Currency"></select>
+                            </div>
+
+
+
+                        </div>
+                        <div class="d-grid mt-4 mb-3"><button class="btn btn-primary" type="submit">Create</button></div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- SignUp Form End -->
+        <!-- Footer
+        ============================================= -->
+        <div class="container-fluid bg-white py-2">
+            <p class="text-center text-muted mb-0">Copyright &copy; 2022 <a href="#">Paynow</a>. All Rights Reserved.</p>
+        </div>
+
+    </div>
+
+    <!-- Back to Top
+    ============================================= -->
+    <a id="back-to-top" data-bs-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- Styles Switcher -->
+    <!-- Styles Switcher End -->
+    <!-- Script -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Style Switcher -->
+
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

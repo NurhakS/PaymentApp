@@ -1,0 +1,145 @@
+﻿@model IEnumerable<PaymentApp.Models.Transfer>
+
+@{
+    ViewData["Title"] = "Wallet_Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+<div id="content" class="py-4">
+    <div class="container">
+        <div class="row">
+
+            <!-- Left Panel
+            ============================================= -->
+            <aside class="col-lg-3">
+
+                <!-- Profile Details
+                =============================== -->
+                <div class="bg-white shadow-sm rounded text-center p-3 mb-4">
+                    <div class="profile-thumb mt-3 mb-4">
+                        <img class="rounded-circle" src="images/profile-thumb.jpg" alt="">
+                        <div class="profile-thumb-edit bg-primary text-white" data-bs-toggle="tooltip" title="Change Profile Picture">
+                            <i class="fas fa-camera position-absolute"></i>
+                            <input type="file" class="custom-file-input" id="customFile">
+                        </div>
+                    </div>
+                    <p class="text-3 fw-500 mb-2">Hello,@ViewData["Message"]</p>
+                    <p class="mb-2"><a href="settings-profile.html" class="text-5 text-light" data-bs-toggle="tooltip" title="Edit Profile"><i class="fas fa-edit"></i></a></p>
+                </div>
+                <!-- Profile Details End -->
+                <!-- Available Balance
+                =============================== -->
+                <div class="bg-white shadow-sm rounded text-center p-3 mb-4">
+                    <div class="text-17 text-light my-3"><i class="fas fa-wallet"></i></div>
+                    <h3 class="text-9 fw-400">@ViewData["Number"]</h3>
+                    <p class="mb-2 text-muted opacity-8">Account Number</p>
+                    <hr class="mx-n3">
+                    <div class="d-flex"><a href="withdraw-money.html" class="btn-link me-auto">Withdraw</a> <a href="deposit-money.html" class="btn-link ms-auto">Deposit</a></div>
+                </div>
+                <!-- Available Balance End -->
+                <!-- Need Help?
+                =============================== -->
+                <div class="bg-white shadow-sm rounded text-center p-3 mb-4">
+                    <div class="text-17 text-light my-3"><i class="fas fa-comments"></i></div>
+                    <h3 class="text-5 fw-400 my-4">Need Help?</h3>
+                    <p class="text-muted opacity-8 mb-4">
+                        Have questions or concerns regrading your account?<br>
+                        Our experts are here to help!.
+                    </p>
+                    <div class="d-grid"><a href="#" class="btn btn-primary">Chate with Us</a></div>
+                </div>
+                <!-- Need Help? End -->
+
+            </aside>
+            <!-- Left Panel End -->
+            <!-- Middle Panel
+            ============================================= -->
+            <div class="col-lg-9">
+                <h2 class="fw-400 mb-3">Transactions</h2>
+
+                <!-- Filter
+                ============================================= -->
+                <div class="row">
+                    <div class="col mb-2">
+                        <form id="filterTransactions" method="post">
+                            <div class="row g-3 mb-3">
+                                <!-- Date Range
+                                ========================= -->
+                                <!-- All Filters Link
+                                ========================= -->
+                                <!-- Statements Link
+                                ========================= -->
+                                <div class="col-auto d-flex align-items-center ms-auto">
+                                    <div class="dropdown">
+                                        <a class="text-muted btn-link" href="#" role="button" id="statements" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-file-download text-3 me-1"></i>Statements</a>
+                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="statements"> <a class="dropdown-item" href="#">CSV</a> <a class="dropdown-item" href="#">PDF</a> </div>
+                                    </div>
+                                </div>
+
+                                <!-- All Filters collapse
+                                ================================ -->
+                               
+                                <!-- All Filters collapse End -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Filter End -->
+                <!-- All Transactions
+                ============================================= -->
+                <div class="bg-white shadow-sm rounded py-4 mb-4">
+                    <h3 class="text-5 fw-400 d-flex align-items-center px-4 mb-4">All Transactions</h3>
+                    <!-- Title
+                    =============================== -->
+                    <div class="transaction-title py-2 px-4">
+                        <div class="row">
+                            <div class="col-2 col-sm-1 text-center"><span class="">Currency</span></div>
+                            <div class="col col-sm-7">Account Number Giver</div>
+                            <div class="col-auto col-sm-2 d-none d-sm-block text-center">Status</div>
+                            <div class="col-3 col-sm-2 text-end">Amount</div>
+                        </div>
+                    </div>
+                    <!-- Title End -->
+                    <!-- Transaction List
+                    =============================== -->
+                    <div class="transaction-list">
+                      @foreach(var item in Model) {
+                        <div class="transaction-item px-4 py-3" data-bs-toggle="modal" data-bs-target="#transaction-detail">
+                            <div class="row align-items-center flex-row">
+                                <div class="col-2 col-sm-1 text-center"> <span class="d-block text-4 fw-300"></span> <span class="d-block text-1 fw-300 text-uppercase"> @item.CurrencyNavigation.CurrencyName</span> </div>
+                                <div class="col col-sm-7"> <span class="d-block text-4">@item.AccountNumberGiver</span> <span class="text-muted"></span> </div>
+                                <div class="col-auto col-sm-2 d-none d-sm-block text-center text-3"> <span class="text-success" data-bs-toggle="tooltip" title="Completed"><i class="fas fa-check-circle"></i></span> </div>
+                                <div class="col-3 col-sm-2 text-end text-4"> <span class="text-nowrap">@item.Value</span> <span class="text-2 text-uppercase"></span> </div>
+                            </div>
+                        </div>
+                      }
+                        
+                   
+                    </div>
+                    <!-- Transaction List End -->
+                    <!-- Transaction Item Details Modal
+                    =========================================== -->
+                 
+                    <!-- Transaction Item Details Modal End -->
+                    <!-- Pagination
+                    ============================================= -->
+                    <ul class="pagination justify-content-center mt-4 mb-0">
+                        <li class="page-item disabled"> <a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a> </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item d-flex align-content-center flex-wrap text-muted text-5 mx-1">......</li>
+                        <li class="page-item"><a class="page-link" href="#">15</a></li>
+                        <li class="page-item"> <a class="page-link" href="#"><i class="fas fa-angle-right"></i></a> </li>
+                    </ul>
+                    <!-- Paginations end -->
+
+                </div>
+                <!-- All Transactions End -->
+            </div>
+            <!-- Middle End -->
+        </div>
+    </div>
+</div>
+
