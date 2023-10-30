@@ -6,8 +6,7 @@ Payment App Login
 ![payment_login](https://github.com/NurhakS/PaymentApp/assets/95230241/22234264-154d-4025-9318-35ef3534ed25)
 Payment App Account
 ![payment_account](https://github.com/NurhakS/PaymentApp/assets/95230241/707670ab-6e4b-4cef-ba97-3c1a503e6cb2)
-Payment App Bank Accounts
-![payment_bank](https://github.com/NurhakS/PaymentApp/assets/95230241/f14c5846-6a66-41ad-a32f-0de6599ebfdc)
+
 Payment App Virtual Bank Cards
 ![payment_virtual](https://github.com/NurhakS/PaymentApp/assets/95230241/823fdf2e-b757-4ff9-830c-6226db582e2f)
 Payment App Bank Cards
